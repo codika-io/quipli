@@ -1,0 +1,376 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+  background: #f3f2ef;
+}
+
+body {
+  width: 340px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-size: 13px;
+  color: #1d2226;
+  background: #f3f2ef;
+}
+
+.popup-card {
+  padding: 16px;
+}
+
+.popup-header {
+  text-align: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #e0dfdc;
+}
+
+.popup-header h1 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0a66c2;
+}
+
+.popup-header .subtitle {
+  font-size: 11px;
+  color: #666;
+  letter-spacing: 0.5px;
+}
+
+.field-group {
+  margin-bottom: 12px;
+}
+
+.field-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 4px;
+}
+
+/* Custom select wrapper with icon + proper arrow spacing */
+.select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select-wrap select {
+  width: 100%;
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #fff;
+  color: #1d2226;
+  outline: none;
+  transition: border-color 0.15s;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+.select-wrap select:focus {
+  border-color: #0a66c2;
+}
+
+/* Provider/model icon inside the select */
+.select-icon {
+  position: absolute;
+  left: 10px;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 1;
+  display: none;
+}
+
+.select-icon.visible {
+  display: block;
+}
+
+.select-wrap .select-icon.visible + select {
+  padding-left: 32px;
+}
+
+/* API key input */
+.key-input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.key-input-wrap input {
+  width: 100%;
+  padding: 8px 36px 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 13px;
+  background: #fff;
+  color: #1d2226;
+  outline: none;
+  transition: border-color 0.15s;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.key-input-wrap input:focus {
+  border-color: #0a66c2;
+}
+
+.toggle-key-btn {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  width: 34px;
+  background: #fff;
+  border: none;
+  border-left: 1px solid #e0dfdc;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  transition: color 0.15s;
+}
+
+.toggle-key-btn:hover {
+  color: #333;
+}
+
+.toggle-key-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.key-status {
+  font-size: 11px;
+  margin-top: 4px;
+  min-height: 16px;
+}
+
+.key-status.valid {
+  color: #057642;
+}
+
+.key-status.invalid {
+  color: #cc1016;
+}
+
+.key-status.checking {
+  color: #666;
+}
+
+/* Toggle */
+.toggle-group {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e0dfdc;
+}
+
+.toggle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.toggle-label {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background: #ccc;
+  border-radius: 22px;
+  transition: background 0.2s;
+}
+
+.toggle-slider::before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: #0a66c2;
+}
+
+.toggle-switch input:checked + .toggle-slider::before {
+  transform: translateX(18px);
+}
+
+/* System prompt row */
+.system-prompt-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.system-prompt-btn {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fff;
+  font-size: 12px;
+  color: #0a66c2;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.system-prompt-btn:hover {
+  background: #f0f7ff;
+  border-color: #0a66c2;
+}
+
+.system-prompt-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #057642;
+  font-weight: 500;
+}
+
+.system-prompt-check svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* System prompt modal */
+.sp-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.sp-modal {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  width: 100%;
+  max-width: 308px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+}
+
+.sp-modal-header {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1d2226;
+  margin-bottom: 10px;
+}
+
+.sp-modal-textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 12px;
+  font-family: inherit;
+  color: #1d2226;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.15s;
+  min-height: 100px;
+}
+
+.sp-modal-textarea:focus {
+  border-color: #0a66c2;
+}
+
+.sp-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.sp-modal-btn {
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background 0.15s;
+}
+
+.sp-cancel {
+  background: #f3f2ef;
+  color: #444;
+  border-color: #ccc;
+}
+
+.sp-cancel:hover {
+  background: #e8e7e4;
+}
+
+.sp-save {
+  background: #0a66c2;
+  color: #fff;
+}
+
+.sp-save:hover {
+  background: #004182;
+}
+
+/* Footer */
+.popup-footer {
+  text-align: center;
+  padding-top: 12px;
+  margin-top: 12px;
+  border-top: 1px solid #e0dfdc;
+  font-size: 11px;
+  color: #999;
+}
+
+.popup-footer a {
+  color: #0a66c2;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.popup-footer a:hover {
+  text-decoration: underline;
+}

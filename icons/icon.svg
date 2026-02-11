@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <defs>
+    <linearGradient id="light" x1="10" y1="10" x2="66" y2="66" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#93C5FD"/>
+      <stop offset="1" stop-color="#60A5FA"/>
+    </linearGradient>
+    <linearGradient id="dark" x1="34" y1="34" x2="112" y2="112" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#1E40AF"/>
+    </linearGradient>
+    <clipPath id="ul">
+      <polygon points="0,0 100,0 0,100"/>
+    </clipPath>
+    <clipPath id="br">
+      <polygon points="100,0 128,0 128,128 0,128 0,100"/>
+    </clipPath>
+  </defs>
+
+  <!-- Bottom-right facet (darker) -->
+  <g clip-path="url(#br)">
+    <path fill-rule="evenodd" fill="url(#dark)" d="M50 10 A40 40 0 0 1 50 90 A40 40 0 0 1 50 10 Z M50 32 A18 18 0 0 0 50 68 A18 18 0 0 0 50 32 Z"/>
+  </g>
+
+  <!-- Top-left facet (lighter) -->
+  <g clip-path="url(#ul)">
+    <path fill-rule="evenodd" fill="url(#light)" d="M50 10 A40 40 0 0 1 50 90 A40 40 0 0 1 50 10 Z M50 32 A18 18 0 0 0 50 68 A18 18 0 0 0 50 32 Z"/>
+  </g>
+
+  <!-- Q tail -->
+  <line x1="78" y1="78" x2="112" y2="112" stroke="url(#dark)" stroke-width="18" stroke-linecap="round"/>
+</svg>

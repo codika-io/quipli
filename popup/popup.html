@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" style="background:#f3f2ef;overflow:hidden;height:100%">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Critical inline styles — ensures popup never shows blank/white */
+    html, body { background: #f3f2ef !important; margin: 0; padding: 0; overflow: hidden; }
+    body { width: 340px; height: auto; }
+  </style>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-card">
+    <header class="popup-header">
+      <h1>Quipli</h1>
+      <span class="subtitle">AI LinkedIn Commenter</span>
+    </header>
+
+    <div class="field-group">
+      <label for="provider">API Provider</label>
+      <div class="select-wrap">
+        <img id="providerIcon" class="select-icon" alt="">
+        <select id="provider">
+          <option value="claude">Anthropic</option>
+          <option value="openai">OpenAI</option>
+          <option value="gemini">Google</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="model">Model</label>
+      <div class="select-wrap">
+        <img id="modelIcon" class="select-icon" alt="">
+        <select id="model"></select>
+      </div>
+    </div>
+
+    <div class="field-group">
+      <label for="apiKey">API Key</label>
+      <div class="key-input-wrap">
+        <input type="password" id="apiKey" placeholder="Paste your API key" autocomplete="off">
+        <button type="button" id="toggleKey" class="toggle-key-btn" title="Show/hide key">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+            <circle cx="12" cy="12" r="3"/>
+          </svg>
+        </button>
+      </div>
+      <div id="keyStatus" class="key-status"></div>
+    </div>
+
+    <div class="field-group">
+      <label for="tone">Comment Tone</label>
+      <div class="select-wrap">
+        <select id="tone">
+          <option value="professional">Professional</option>
+          <option value="casual">Casual</option>
+          <option value="witty">Witty</option>
+          <option value="supportive">Supportive</option>
+          <option value="insightful">Insightful</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field-group system-prompt-group">
+      <label>System Prompt</label>
+      <div id="systemPromptRow" class="system-prompt-row">
+        <button type="button" id="systemPromptBtn" class="system-prompt-btn">Add system prompt</button>
+      </div>
+    </div>
+
+    <div class="toggle-group">
+      <div class="toggle-row">
+        <span class="toggle-label">Generate Comments</span>
+        <label class="toggle-switch">
+          <input type="checkbox" id="enabled">
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- System prompt modal -->
+    <div id="systemPromptModal" class="sp-modal-overlay" style="display:none">
+      <div class="sp-modal">
+        <div class="sp-modal-header">System Prompt</div>
+        <textarea id="systemPromptInput" class="sp-modal-textarea" rows="8" placeholder="Enter your custom system prompt for generating comments..."></textarea>
+        <div class="sp-modal-actions">
+          <button type="button" id="spCancel" class="sp-modal-btn sp-cancel">Cancel</button>
+          <button type="button" id="spSave" class="sp-modal-btn sp-save">Save</button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="popup-footer">
+      by <a href="https://codika.io" target="_blank" rel="noopener">Codika.io</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
