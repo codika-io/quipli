@@ -19,3 +19,6 @@ Thumbs.db
 
 # Reference assets (not part of the extension)
 icons/codika.svg
+
+# Playwright
+.playwright-mcp/

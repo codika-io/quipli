@@ -373,11 +373,11 @@ async function injectComment(post, comment) {
 
 function waitForElement(container, selector, timeout = 3000) {
   return new Promise((resolve) => {
-    const existing = container.querySelector(selector) || document.querySelector(selector);
+    const existing = container.querySelector(selector);
     if (existing) return resolve(existing);
 
     const observer = new MutationObserver(() => {
-      const el = container.querySelector(selector) || document.querySelector(selector);
+      const el = container.querySelector(selector);
       if (el) {
         observer.disconnect();
         clearTimeout(timer);
@@ -385,7 +385,7 @@ function waitForElement(container, selector, timeout = 3000) {
       }
     });
 
-    observer.observe(document.body, { childList: true, subtree: true });
+    observer.observe(container, { childList: true, subtree: true });
 
     const timer = setTimeout(() => {
       observer.disconnect();
