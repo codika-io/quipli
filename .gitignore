@@ -22,3 +22,6 @@ icons/codika.svg
 
 # Playwright
 .playwright-mcp/
+
+# ── Entire ───────────────────────────────────────────────────
+.entire/
